@@ -21,12 +21,39 @@ app.get('/getPhotos', function(req, res) {
   console.log("getPhotos invoked");
   res.set('Access-Control-Allow-Origin', '*');
 
-  var fetchAllPhotosPromise = dbController.fetchAllPhotos();
-  fetchAllPhotosPromise.then(function(allPhotos) {
-    var response = {};
-    response.photos = allPhotos;
-    res.send(response);
-  });
+  var allPhotos = [];
+
+  var photo = {};
+  photo.id = "56f71293e70b829013ea0312";
+  photo.title = "IMG_1625.JPG";
+  // photo.dateTaken = "2014-03-23 22:12:37.032Z";
+  photo.dateTaken = new Date("2014-03-23 22:12:37.032Z");
+  photo.url = "testPhotos/New Orleans/IMG_1625.JPG";
+  photo.orientation = 6;
+  photo.width = 3264;
+  photo.height = 2448;
+  photo.thumbUrl = "testPhotos/New Orleans/IMG_1625_thumb.JPG";
+  photo.tags = [];
+
+  allPhotos.push(photo);
+
+  var photo = {};
+  photo.id = "56f71293e70b829013ea0313";
+  photo.title = "IMG_1627.JPG";
+  // photo.dateTaken = "2014-03-23 22:12:37.032Z";
+  photo.dateTaken = new Date("2016-03-26 22:51:48.036Z");
+  photo.url = "testPhotos/New Orleans/IMG_1627.JPG";
+  photo.orientation = 1;
+  photo.width = 3264;
+  photo.height = 2448;
+  photo.thumbUrl = "testPhotos/New Orleans/IMG_1627_thumb.JPG";
+  photo.tags = [];
+
+  allPhotos.push(photo);
+
+  var response = {};
+  response.photos = allPhotos;
+  res.send(response);
 });
 
 // app.use('/photos', express.static(path.join(__dirname,'/public')));
